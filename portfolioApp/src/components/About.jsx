@@ -15,151 +15,103 @@ import {
 import { MathUtils } from "three";
 import { TypeAnimation } from "react-type-animation";
 
-const DNAHelix = () => {
-  const groupRef = useRef();
-  const particlesCount = 80;
-  const radius = 4;
-  const height = 8;
-
-  const particles = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < particlesCount; i++) {
-      const angle = (i / particlesCount) * Math.PI * 4;
-      const x = Math.cos(angle) * radius;
-      const y = (i / particlesCount) * height - height / 2;
-      const z = Math.sin(angle) * radius;
-      temp.push({ position: [x, y, z], angle });
-    }
-    return temp;
-  }, []);
-
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    groupRef.current.rotation.y = time * 0.2;
-  });
-
-  return (
-    <group ref={groupRef}>
-      {/* DNA Sarmalı */}
-      {particles.map((particle, i) => (
-        <group key={i} position={particle.position}>
-          {/* Sol Parçacık */}
-          <mesh>
-            <sphereGeometry args={[0.1, 16, 16]} />
-            <meshStandardMaterial
-              color="#4f46e5"
-              emissive="#4f46e5"
-              emissiveIntensity={0.5}
-            />
-          </mesh>
-          {/* Sağ Parçacık */}
-          <mesh
-            position={[
-              Math.cos(particle.angle + Math.PI) * radius * 0.5,
-              0,
-              Math.sin(particle.angle + Math.PI) * radius * 0.5,
-            ]}
-          >
-            <sphereGeometry args={[0.1, 16, 16]} />
-            <meshStandardMaterial
-              color="#0ea5e9"
-              emissive="#0ea5e9"
-              emissiveIntensity={0.5}
-            />
-          </mesh>
-          {/* Bağlantı Çizgisi */}
-          <mesh>
-            <cylinderGeometry args={[0.02, 0.02, radius * 0.5, 8]} />
-            <meshStandardMaterial
-              color="#6366f1"
-              emissive="#6366f1"
-              emissiveIntensity={0.2}
-              transparent
-              opacity={0.6}
-            />
-          </mesh>
-        </group>
-      ))}
-    </group>
-  );
-};
-
 const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
   const laptopRef = useRef();
 
-  useFrame(() => {
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+
     if (!isDragging) {
-      laptopRef.current.rotation.x = MathUtils.lerp(
-        laptopRef.current.rotation.x,
-        -0.2,
-        0.05
-      );
-      laptopRef.current.rotation.y = MathUtils.lerp(
-        laptopRef.current.rotation.y,
-        0,
-        0.05
-      );
+      // Yumuşak yüzer hareket
+      laptopRef.current.position.y = Math.sin(time * 0.5) * 0.1;
+      // Hafif dönüş
+      laptopRef.current.rotation.y = Math.sin(time * 0.3) * 0.1;
+      // Ekran açılıp kapanma efekti
+      laptopRef.current.children[0].rotation.x =
+        -0.5 + Math.sin(time * 0.2) * 0.1;
     } else {
-      laptopRef.current.rotation.x = MathUtils.degToRad(rotation.x);
       laptopRef.current.rotation.y = MathUtils.degToRad(rotation.y);
     }
   });
 
   return (
     <group ref={laptopRef}>
-      {/* Laptop Ekranı */}
-      <mesh position={[0, 0.6, -0.2]}>
-        <boxGeometry args={[3, 2, 0.08]} />
-        <meshStandardMaterial color="#e2e8f0" metalness={0.5} roughness={0.2} />
+      {/* Ekran */}
+      <group position={[0, 0.1, 0]}>
         {/* Ekran Çerçevesi */}
-        <mesh position={[0, 0, 0.041]}>
-          <boxGeometry args={[2.9, 1.9, 0.02]} />
-          <meshStandardMaterial
-            color="#1e293b"
+        <mesh castShadow>
+          <boxGeometry args={[3, 2, 0.1]} />
+          <meshPhysicalMaterial
+            color="#2a2a2a"
             metalness={0.8}
             roughness={0.2}
+            clearcoat={1}
           />
         </mesh>
-        {/* Ekrandaki Kod Animasyonu */}
-        <Html transform position={[0, 0, 0.06]} scale={0.15}>
-          <div className="w-[800px] h-[400px] bg-gray-900 p-4 font-mono text-sm overflow-hidden">
-            <TypeAnimation
-              sequence={[
-                "const Portfolio = () => {\n  return (\n    <div>\n      <h1>Hello World!</h1>\n    </div>\n  );\n};",
-                1000,
-                'class API {\n  async getData() {\n    const response = await fetch("/api");\n    return response.json();\n  }\n}',
-                1000,
-              ]}
-              repeat={Infinity}
-              style={{ color: "#61dafb", whiteSpace: "pre-line" }}
-            />
-          </div>
-        </Html>
-      </mesh>
-      {/* Laptop Tabanı */}
-      <mesh position={[0, -0.2, 0.4]} rotation={[-0.3, 0, 0]}>
-        <boxGeometry args={[3, 0.1, 2]} />
-        <meshStandardMaterial color="#e2e8f0" metalness={0.5} roughness={0.2} />
-        {/* Logo */}
-        <mesh position={[0, 0.051, 0]}>
-          <circleGeometry args={[0.2, 32]} />
-          <meshStandardMaterial
-            color="#3b82f6"
-            emissive="#3b82f6"
-            emissiveIntensity={0.2}
+        {/* Ekran İçeriği */}
+        <mesh position={[0, 0, 0.051]}>
+          <planeGeometry args={[2.9, 1.9]} />
+          <meshBasicMaterial color="#000000" />
+          <Html transform position={[0, 0, 0.01]} scale={0.13}>
+            <div className="w-[900px] h-[500px] bg-[#1e1e1e] p-6 font-mono text-base overflow-hidden rounded-lg">
+              <TypeAnimation
+                sequence={[
+                  `<span class="text-[#00e5ff]">const</span> <span class="text-[#00e5ff]">developer</span> <span class="text-[#00e5ff]">=</span> {
+                    name: <span class="text-[#00e5ff]">'Sevda Abbasi'</span>,
+                    role: <span class="text-[#00e5ff]">'Full Stack Developer'</span>,
+                    skills: [
+                      <span class="text-[#00e5ff]">'C#'</span>,
+                      <span class="text-[#00e5ff]">'.NET Core'</span>,
+                      <span class="text-[#00e5ff]">'React'</span>,
+                      <span class="text-[#00e5ff]">'Swift'</span>
+                    ],
+                    passion: <span class="text-[#00e5ff]">'Building innovative solutions'</span>
+                  };</span>`,
+                  3000,
+                ]}
+                repeat={Infinity}
+                style={{
+                  whiteSpace: "pre-line",
+                  fontSize: "1.3em",
+                  lineHeight: "2",
+                  letterSpacing: "1px",
+                  fontWeight: "600",
+                  color: "#00e5ff",
+                }}
+              />
+            </div>
+          </Html>
+        </mesh>
+      </group>
+
+      {/* Alt Kısım */}
+      <group position={[0, -1, 0.5]} rotation={[-0.5, 0, 0]}>
+        {/* Ana Gövde */}
+        <mesh castShadow>
+          <boxGeometry args={[3, 0.2, 2]} />
+          <meshPhysicalMaterial
+            color="#2a2a2a"
             metalness={0.8}
             roughness={0.2}
+            clearcoat={1}
           />
         </mesh>
-      </mesh>
+        {/* Touchpad */}
+        <mesh position={[0, 0.101, -0.3]}>
+          <planeGeometry args={[1.2, 0.8]} />
+          <meshPhysicalMaterial
+            color="#1a1a1a"
+            metalness={0.9}
+            roughness={0.3}
+            clearcoat={0.5}
+          />
+        </mesh>
+      </group>
     </group>
   );
 };
 
-const CodingLaptop = () => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-
+const CodingLaptop = ({ isDragging, setIsDragging, rotation, setRotation }) => {
   const handleMouseDown = () => setIsDragging(true);
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseMove = (e) => {
@@ -172,29 +124,29 @@ const CodingLaptop = () => {
 
   return (
     <div className="relative w-full h-full">
-      {/* Döndürme İpucu */}
-      <div className="absolute top-4 right-4 bg-white/90 px-4 py-2 rounded-full shadow-lg z-10 flex items-center gap-2 text-sm text-gray-600">
-        <svg
-          className="w-5 h-5 animate-spin-slow"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M22 2L22 8L16 8"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        Tıkla ve Sürükle
+      {/* İpucu Kartı */}
+      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-lg z-10">
+        <div className="flex items-center gap-3">
+          <svg
+            className="w-6 h-6 text-sky-500 animate-spin"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="flex flex-col">
+            <span className="font-medium text-gray-800">Etkileşimli Model</span>
+            <span className="text-xs text-gray-600">
+              Tıkla, sürükle ve yakınlaştır
+            </span>
+          </div>
+        </div>
       </div>
 
       <div
@@ -207,14 +159,19 @@ const CodingLaptop = () => {
           cursor: isDragging ? "grabbing" : "grab",
         }}
       >
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-          <ambientLight intensity={0.7} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
+        <Canvas
+          shadows
+          camera={{ position: [-5, 2, 5], fov: 45 }}
+          className="bg-transparent"
+        >
+          <color attach="background" args={["transparent"]} />
+          <ambientLight intensity={0.4} />
+          <pointLight position={[10, 10, 10]} intensity={0.4} />
           <spotLight
-            position={[0, 5, 0]}
-            angle={0.3}
+            position={[5, 5, 5]}
+            angle={0.4}
             penumbra={1}
-            intensity={0.5}
+            intensity={0.6}
             castShadow
           />
           <LaptopModel
@@ -223,7 +180,14 @@ const CodingLaptop = () => {
             rotation={rotation}
             setRotation={setRotation}
           />
-          <OrbitControls enabled={!isDragging} />
+          <OrbitControls
+            enabled={!isDragging}
+            enableZoom={true}
+            minDistance={4}
+            maxDistance={10}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 3}
+          />
         </Canvas>
       </div>
     </div>
@@ -248,6 +212,9 @@ const Scene = () => {
 };
 
 const About = () => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+
   const skills = [
     {
       icon: (
@@ -310,10 +277,18 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
+            {/* Arkaplan Kartı */}
             <div className="relative z-10 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-20 blur-lg" />
-              <div className="relative rounded-2xl overflow-hidden h-[400px] shadow-2xl">
-                <CodingLaptop />
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-20 blur-lg" />
+              <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 hover:scale-[1.02]">
+                <div className="h-[400px]">
+                  <CodingLaptop
+                    isDragging={isDragging}
+                    setIsDragging={setIsDragging}
+                    rotation={rotation}
+                    setRotation={setRotation}
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
