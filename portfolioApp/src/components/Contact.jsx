@@ -128,10 +128,29 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-8 rounded-2xl shadow-custom"
+            className="bg-white p-8 rounded-2xl shadow-custom relative overflow-hidden"
           >
+            {/* Coming Soon Overlay */}
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-center p-6"
+              >
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  Coming Soon!
+                </h3>
+                <p className="text-gray-600">
+                  Contact form is currently under maintenance. Please use email
+                  or social media to reach me.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Mevcut form içeriği */}
             <h3 className="text-xl font-bold mb-6 text-gray-800">
-              Mesaj Gönderin
+              Send Message
             </h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
