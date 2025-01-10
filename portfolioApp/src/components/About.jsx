@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { OrbitControls, Html } from "@react-three/drei";
+import { useRef, useMemo, useState } from "react";
 import {
   FaCode,
   FaDatabase,
@@ -12,6 +12,8 @@ import {
   FaDownload,
   FaCheckCircle,
 } from "react-icons/fa";
+import { MathUtils } from "three";
+import { TypeAnimation } from "react-type-animation";
 
 const DNAHelix = () => {
   const groupRef = useRef();
@@ -79,6 +81,98 @@ const DNAHelix = () => {
         </group>
       ))}
     </group>
+  );
+};
+
+const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
+  const laptopRef = useRef();
+
+  useFrame(() => {
+    if (!isDragging) {
+      laptopRef.current.rotation.x = MathUtils.lerp(
+        laptopRef.current.rotation.x,
+        0,
+        0.05
+      );
+      laptopRef.current.rotation.y = MathUtils.lerp(
+        laptopRef.current.rotation.y,
+        0,
+        0.05
+      );
+    } else {
+      laptopRef.current.rotation.x = MathUtils.degToRad(rotation.x);
+      laptopRef.current.rotation.y = MathUtils.degToRad(rotation.y);
+    }
+  });
+
+  return (
+    <group ref={laptopRef}>
+      {/* Laptop Ekranı */}
+      <mesh position={[0, 0.5, 0]}>
+        <boxGeometry args={[3, 2, 0.1]} />
+        <meshStandardMaterial color="#1a1a1a" />
+        {/* Ekrandaki Kod Animasyonu */}
+        <Html transform position={[0, 0, 0.06]} scale={0.15}>
+          <div className="w-[800px] h-[400px] bg-gray-900 p-4 font-mono text-sm overflow-hidden">
+            <TypeAnimation
+              sequence={[
+                "const Portfolio = () => {\n  return (\n    <div>\n      <h1>Hello World!</h1>\n    </div>\n  );\n};",
+                1000,
+                'class API {\n  async getData() {\n    const response = await fetch("/api");\n    return response.json();\n  }\n}',
+                1000,
+              ]}
+              repeat={Infinity}
+              style={{ color: "#61dafb", whiteSpace: "pre-line" }}
+            />
+          </div>
+        </Html>
+      </mesh>
+      {/* Laptop Tabanı */}
+      <mesh position={[0, -0.5, 0.5]} rotation={[-0.5, 0, 0]}>
+        <boxGeometry args={[3, 0.2, 2]} />
+        <meshStandardMaterial color="#1a1a1a" />
+      </mesh>
+    </group>
+  );
+};
+
+const CodingLaptop = () => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+
+  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseUp = () => setIsDragging(false);
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    setRotation({
+      x: rotation.x + e.movementY * 0.5,
+      y: rotation.y + e.movementX * 0.5,
+    });
+  };
+
+  return (
+    <div
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+      style={{
+        width: "100%",
+        height: "100%",
+        cursor: isDragging ? "grabbing" : "grab",
+      }}
+    >
+      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} />
+        <LaptopModel
+          isDragging={isDragging}
+          setIsDragging={setIsDragging}
+          rotation={rotation}
+          setRotation={setRotation}
+        />
+        <OrbitControls enabled={!isDragging} />
+      </Canvas>
+    </div>
   );
 };
 
@@ -162,30 +256,11 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative z-10 group perspective-1000">
-              <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-75 blur-lg animate-pulse-slow" />
-              <div className="relative overflow-hidden rounded-2xl border-8 border-white shadow-2xl bg-gray-900 aspect-square transform-gpu transition-transform duration-500 hover:scale-[1.02]">
-                <Scene />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative z-10 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-20 blur-lg" />
+              <div className="relative bg-gray-900 rounded-2xl overflow-hidden h-[400px] shadow-2xl">
+                <CodingLaptop />
               </div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl"
-              >
-                <div className="grid grid-cols-2 gap-6">
-                  {stats.map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-3xl font-bold text-gradient">
-                        {stat.number}
-                      </div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
             </div>
           </motion.div>
 

@@ -117,18 +117,23 @@ const Hero = () => {
                   alt="Sevda Abbasi"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
-              </div>
 
-              {/* Deneyim Kartı */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-                className="absolute -bottom-6 -right-6 bg-white px-8 py-4 rounded-2xl shadow-xl"
-              >
-                <p className="text-2xl font-bold text-indigo-500">4+ Yıl</p>
-                <p className="text-gray-600">Deneyim</p>
-              </motion.div>
+                {/* Metrikler - Profil Resmi Etrafında */}
+                <div className="absolute -top-4 -right-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
+                  <p className="text-xl font-bold text-indigo-500">4+ Yıl</p>
+                  <p className="text-sm text-gray-600">Deneyim</p>
+                </div>
+
+                <div className="absolute -bottom-4 -left-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
+                  <p className="text-xl font-bold text-indigo-500">8+</p>
+                  <p className="text-sm text-gray-600">Proje</p>
+                </div>
+
+                <div className="absolute -top-4 -left-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
+                  <p className="text-xl font-bold text-indigo-500">5+</p>
+                  <p className="text-sm text-gray-600">Sertifika</p>
+                </div>
+              </div>
             </div>
 
             {/* Dekoratif Arka Plan Şekilleri */}
