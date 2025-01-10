@@ -333,8 +333,8 @@ const About = () => {
                 Contact Me
               </motion.a>
               <motion.a
-                href="/Sevda_Abbasi_CV.pdf"
-                download="Sevda_Abbasi_CV.pdf"
+                href={`${import.meta.env.BASE_URL}Sevda_Abbasi_CV.pdf`}
+                download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-outline flex items-center gap-2 p-4 rounded-xl"
