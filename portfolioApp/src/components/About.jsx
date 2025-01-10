@@ -247,7 +247,7 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "4+", label: "Yıl Deneyim" },
+    { number: "2+", label: "Yıl Deneyim" },
     { number: "8+", label: "Tamamlanan Proje" },
     { number: "5+", label: "Sertifika" },
     { number: "2+", label: "Teknoloji" },
@@ -304,7 +304,7 @@ const About = () => {
               <div className="space-y-4 text-gray-600">
                 <p>
                   Bilgisayar mühendisi ve tutkulu bir full-stack yazılım
-                  geliştiricisiyim. 4+ yıllık deneyimimle modern web
+                  geliştiricisiyim. 2+ yıllık deneyimimle modern web
                   teknolojileri ve yazılım mimarileri konusunda uzmanlaştım.
                 </p>
                 <p>
@@ -325,7 +325,7 @@ const About = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn btn-primary"
+                className="btn btn-primary p-4 rounded-xl"
               >
                 İletişime Geç
               </motion.a>
@@ -334,7 +334,7 @@ const About = () => {
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn btn-outline flex items-center gap-2"
+                className="btn btn-outline flex items-center gap-2 p-4 rounded-xl"
               >
                 <FaDownload />
                 CV İndir

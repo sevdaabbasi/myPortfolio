@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import {
-  FaReact,
-  FaAngular,
-  FaNodeJs,
-  FaDocker,
-  FaAws,
-  FaDatabase,
   FaCode,
   FaMicrosoft,
+  FaDatabase,
+  FaReact,
+  FaDocker,
+  FaGitAlt,
   FaApple,
   FaMobile,
-  FaGitAlt,
+  FaHtml5,
+  FaCss3,
+  FaJs,
+  FaPython,
 } from "react-icons/fa";
+import { SiPostgresql, SiPostman, SiDbeaver, SiMysql } from "react-icons/si";
 
 const Technologies = () => {
   const technologies = [
@@ -21,13 +23,19 @@ const Technologies = () => {
         {
           name: "C#",
           icon: <FaCode className="text-[#178600]" />,
-          level: 95,
+          level: 80,
           color: "from-[#178600] to-[#0e5300]",
         },
         {
           name: ".NET Core",
           icon: <FaMicrosoft className="text-[#512BD4]" />,
-          level: 90,
+          level: 70,
+          color: "from-[#512BD4] to-[#3c20a0]",
+        },
+        {
+          name: "ASP.NET Core MVC",
+          icon: <FaMicrosoft className="text-[#512BD4]" />,
+          level: 65,
           color: "from-[#512BD4] to-[#3c20a0]",
         },
         {
@@ -35,6 +43,41 @@ const Technologies = () => {
           icon: <FaDatabase className="text-[#264DE4]" />,
           level: 85,
           color: "from-[#264DE4] to-[#1a37b0]",
+        },
+        {
+          name: "Python",
+          icon: <FaPython className="text-[#3776AB]" />,
+          level: 40,
+          color: "from-[#3776AB] to-[#2b5a8b]",
+        },
+      ],
+    },
+    {
+      name: "Frontend",
+      items: [
+        {
+          name: "React",
+          icon: <FaReact className="text-[#61DAFB]" />,
+          level: 50,
+          color: "from-[#61DAFB] to-[#00b0d6]",
+        },
+        {
+          name: "JavaScript",
+          icon: <FaJs className="text-[#F7DF1E]" />,
+          level: 50,
+          color: "from-[#F7DF1E] to-[#c7b218]",
+        },
+        {
+          name: "HTML",
+          icon: <FaHtml5 className="text-[#E34F26]" />,
+          level: 90,
+          color: "from-[#E34F26] to-[#b33d1e]",
+        },
+        {
+          name: "CSS",
+          icon: <FaCss3 className="text-[#1572B6]" />,
+          level: 80,
+          color: "from-[#1572B6] to-[#105a8c]",
         },
       ],
     },
@@ -44,31 +87,43 @@ const Technologies = () => {
         {
           name: "Swift",
           icon: <FaApple className="text-[#F05138]" />,
-          level: 85,
+          level: 65,
           color: "from-[#F05138] to-[#b33d2a]",
         },
         {
           name: "SwiftUI",
           icon: <FaMobile className="text-[#0C86E7]" />,
-          level: 80,
+          level: 60,
           color: "from-[#0C86E7] to-[#0964ad]",
-        },
-        {
-          name: "Firebase",
-          icon: <FaDatabase className="text-[#FFCA28]" />,
-          level: 75,
-          color: "from-[#FFCA28] to-[#cc9c1e]",
         },
       ],
     },
     {
-      name: "Frontend & Tools",
+      name: "Veritabanı & Araçlar",
       items: [
         {
-          name: "React",
-          icon: <FaReact className="text-[#61DAFB]" />,
+          name: "PostgreSQL",
+          icon: <SiPostgresql className="text-[#336791]" />,
+          level: 85,
+          color: "from-[#336791] to-[#264d6d]",
+        },
+        {
+          name: "MySQL",
+          icon: <SiMysql className="text-[#4479A1]" />,
           level: 80,
-          color: "from-[#61DAFB] to-[#00b0d6]",
+          color: "from-[#4479A1] to-[#335a77]",
+        },
+        {
+          name: "DBeaver",
+          icon: <SiDbeaver className="text-[#382923]" />,
+          level: 85,
+          color: "from-[#382923] to-[#1f1714]",
+        },
+        {
+          name: "Postman",
+          icon: <SiPostman className="text-[#FF6C37]" />,
+          level: 90,
+          color: "from-[#FF6C37] to-[#cc5629]",
         },
         {
           name: "Docker",

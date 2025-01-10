@@ -4,6 +4,19 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import myPhoto from "../assets/myPhoto.jpg";
 
 const Hero = () => {
+  const socialLinks = [
+    {
+      icon: <FaGithub />,
+      href: "https://www.github.com/sevdaabbasi",
+      label: "GitHub",
+    },
+    {
+      icon: <FaLinkedin />,
+      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
+      label: "LinkedIn",
+    },
+  ];
+
   return (
     <section id="home" className="relative min-h-screen flex items-center">
       {/* Arkaplan Gradient ve Overlay */}
@@ -72,18 +85,7 @@ const Hero = () => {
 
             {/* Sosyal Medya Linkleri */}
             <div className="flex gap-6 mt-10 justify-center lg:justify-start">
-              {[
-                {
-                  icon: <FaGithub />,
-                  href: "View Github Profile linki",
-                  label: "GitHub",
-                },
-                {
-                  icon: <FaLinkedin />,
-                  href: "View LinkedIn Profile linki",
-                  label: "LinkedIn",
-                },
-              ].map((social, index) => (
+              {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
@@ -121,7 +123,7 @@ const Hero = () => {
 
               {/* Performans Metrikleri */}
               <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                <p className="text-xl font-bold text-indigo-500">4+</p>
+                <p className="text-xl font-bold text-indigo-500">2+</p>
                 <p className="text-sm text-gray-600">Yıl Deneyim</p>
               </div>
 

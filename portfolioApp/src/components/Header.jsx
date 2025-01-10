@@ -15,8 +15,16 @@ const Header = () => {
   ];
 
   const socialLinks = [
-    { href: "https://github.com", icon: <FaGithub />, label: "GitHub" },
-    { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
+    {
+      icon: <FaGithub className="text-xl" />,
+      href: "https://www.github.com/sevdaabbasi",
+      label: "GitHub",
+    },
+    {
+      icon: <FaLinkedin className="text-xl" />,
+      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
+      label: "LinkedIn",
+    },
   ];
 
   useEffect(() => {
@@ -86,31 +94,29 @@ const Header = () => {
             </ul>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => (
+            <div className="hidden md:flex items-center gap-4">
+              {socialLinks.map((social, index) => (
                 <motion.a
-                  key={social.href}
+                  key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-primary-DEFAULT transition-colors"
                   whileHover={{ y: -2 }}
+                  className="text-gray-600 hover:text-indigo-500 transition-colors"
                   aria-label={social.label}
                 >
                   {social.icon}
                 </motion.a>
               ))}
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn btn-primary p-2 rounded-xl"
+              >
+                İletişime Geç
+              </motion.a>
             </div>
-
-            {/* Contact Button */}
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-custom btn-primary"
-            >
-              İletişime Geç
-            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
