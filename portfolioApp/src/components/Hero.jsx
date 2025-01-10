@@ -99,7 +99,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Sağ Taraf - Profil Resmi */}
+          {/* Sağ Taraf - Profil Resmi ve Metrikler */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -117,26 +117,37 @@ const Hero = () => {
                   alt="Sevda Abbasi"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
-
-                {/* Metrikler - Profil Resmi Etrafında */}
-                <div className="absolute -top-4 -right-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
-                  <p className="text-xl font-bold text-indigo-500">4+ Yıl</p>
-                  <p className="text-sm text-gray-600">Deneyim</p>
-                </div>
-
-                <div className="absolute -bottom-4 -left-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
-                  <p className="text-xl font-bold text-indigo-500">8+</p>
-                  <p className="text-sm text-gray-600">Proje</p>
-                </div>
-
-                <div className="absolute -top-4 -left-4 bg-white px-6 py-3 rounded-2xl shadow-xl">
-                  <p className="text-xl font-bold text-indigo-500">5+</p>
-                  <p className="text-sm text-gray-600">Sertifika</p>
-                </div>
               </div>
+
+              {/* Performans Metrikleri */}
+              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition-transform duration-300">
+                <p className="text-xl font-bold text-indigo-500">4+</p>
+                <p className="text-sm text-gray-600">Yıl Deneyim</p>
+              </div>
+
+              <div className="absolute top-1/2 -right-12 bg-white p-4 rounded-2xl shadow-xl transform -rotate-12 hover:rotate-0 transition-transform duration-300">
+                <p className="text-xl font-bold text-indigo-500">8+</p>
+                <p className="text-sm text-gray-600">Proje</p>
+              </div>
+
+              <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                <p className="text-xl font-bold text-indigo-500">5+</p>
+                <p className="text-sm text-gray-600">Sertifika</p>
+              </div>
+
+              {/* Dekoratif Badge */}
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
+                className="absolute -left-6 top-1/2 -translate-y-1/2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white p-4 rounded-2xl shadow-xl"
+              >
+                <p className="text-sm font-semibold">Full Stack</p>
+                <p className="text-xs opacity-80">Developer</p>
+              </motion.div>
             </div>
 
-            {/* Dekoratif Arka Plan Şekilleri */}
+            {/* Dekoratif Arka Plan */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-violet-100 to-indigo-100 rounded-full blur-3xl opacity-20 animate-pulse" />
           </motion.div>
         </div>

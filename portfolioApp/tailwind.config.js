@@ -13,6 +13,7 @@ export default {
       animation: {
         blob: "blob 7s infinite",
         float: "float 6s ease-in-out infinite",
+        "spin-slow": "spin 3s linear infinite",
       },
       keyframes: {
         blob: {

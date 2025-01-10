@@ -91,7 +91,7 @@ const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
     if (!isDragging) {
       laptopRef.current.rotation.x = MathUtils.lerp(
         laptopRef.current.rotation.x,
-        0,
+        -0.2,
         0.05
       );
       laptopRef.current.rotation.y = MathUtils.lerp(
@@ -108,9 +108,18 @@ const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
   return (
     <group ref={laptopRef}>
       {/* Laptop Ekranı */}
-      <mesh position={[0, 0.5, 0]}>
-        <boxGeometry args={[3, 2, 0.1]} />
-        <meshStandardMaterial color="#1a1a1a" />
+      <mesh position={[0, 0.6, -0.2]}>
+        <boxGeometry args={[3, 2, 0.08]} />
+        <meshStandardMaterial color="#e2e8f0" metalness={0.5} roughness={0.2} />
+        {/* Ekran Çerçevesi */}
+        <mesh position={[0, 0, 0.041]}>
+          <boxGeometry args={[2.9, 1.9, 0.02]} />
+          <meshStandardMaterial
+            color="#1e293b"
+            metalness={0.8}
+            roughness={0.2}
+          />
+        </mesh>
         {/* Ekrandaki Kod Animasyonu */}
         <Html transform position={[0, 0, 0.06]} scale={0.15}>
           <div className="w-[800px] h-[400px] bg-gray-900 p-4 font-mono text-sm overflow-hidden">
@@ -128,9 +137,20 @@ const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
         </Html>
       </mesh>
       {/* Laptop Tabanı */}
-      <mesh position={[0, -0.5, 0.5]} rotation={[-0.5, 0, 0]}>
-        <boxGeometry args={[3, 0.2, 2]} />
-        <meshStandardMaterial color="#1a1a1a" />
+      <mesh position={[0, -0.2, 0.4]} rotation={[-0.3, 0, 0]}>
+        <boxGeometry args={[3, 0.1, 2]} />
+        <meshStandardMaterial color="#e2e8f0" metalness={0.5} roughness={0.2} />
+        {/* Logo */}
+        <mesh position={[0, 0.051, 0]}>
+          <circleGeometry args={[0.2, 32]} />
+          <meshStandardMaterial
+            color="#3b82f6"
+            emissive="#3b82f6"
+            emissiveIntensity={0.2}
+            metalness={0.8}
+            roughness={0.2}
+          />
+        </mesh>
       </mesh>
     </group>
   );
@@ -151,27 +171,61 @@ const CodingLaptop = () => {
   };
 
   return (
-    <div
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-      style={{
-        width: "100%",
-        height: "100%",
-        cursor: isDragging ? "grabbing" : "grab",
-      }}
-    >
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
-        <LaptopModel
-          isDragging={isDragging}
-          setIsDragging={setIsDragging}
-          rotation={rotation}
-          setRotation={setRotation}
-        />
-        <OrbitControls enabled={!isDragging} />
-      </Canvas>
+    <div className="relative w-full h-full">
+      {/* Döndürme İpucu */}
+      <div className="absolute top-4 right-4 bg-white/90 px-4 py-2 rounded-full shadow-lg z-10 flex items-center gap-2 text-sm text-gray-600">
+        <svg
+          className="w-5 h-5 animate-spin-slow"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M22 2L22 8L16 8"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Tıkla ve Sürükle
+      </div>
+
+      <div
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        style={{
+          width: "100%",
+          height: "100%",
+          cursor: isDragging ? "grabbing" : "grab",
+        }}
+      >
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+          <ambientLight intensity={0.7} />
+          <pointLight position={[10, 10, 10]} intensity={0.5} />
+          <spotLight
+            position={[0, 5, 0]}
+            angle={0.3}
+            penumbra={1}
+            intensity={0.5}
+            castShadow
+          />
+          <LaptopModel
+            isDragging={isDragging}
+            setIsDragging={setIsDragging}
+            rotation={rotation}
+            setRotation={setRotation}
+          />
+          <OrbitControls enabled={!isDragging} />
+        </Canvas>
+      </div>
     </div>
   );
 };
@@ -258,7 +312,7 @@ const About = () => {
           >
             <div className="relative z-10 group">
               <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-20 blur-lg" />
-              <div className="relative bg-gray-900 rounded-2xl overflow-hidden h-[400px] shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden h-[400px] shadow-2xl">
                 <CodingLaptop />
               </div>
             </div>
