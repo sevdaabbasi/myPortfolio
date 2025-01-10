@@ -4,45 +4,38 @@ import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Ticaret Platformu",
+      title: "Blog Website Backend",
       description:
-        "Modern bir e-ticaret platformu. ASP.NET Core, React ve SQL Server kullanılarak geliştirildi.",
-      image: "/project1.jpg",
-      tags: ["ASP.NET Core", "React", "SQL Server", "Redis"],
-      github: "#",
-      live: "#",
+        "ASP.NET Core ile geliştirilmiş, Clean Architecture ve katmanlı mimari prensiplerine uygun blog sitesi backend projesi.",
+      image: "/blog-project.jpg",
+      tags: ["ASP.NET Core", "EF Core", "Clean Architecture", "SQL Server"],
+      github: "https://github.com/sevdaabbasi/BlogSite",
       features: [
-        "Mikroservis Mimarisi",
-        "Gerçek Zamanlı Bildirimler",
-        "Ödeme Entegrasyonu",
+        "Katmanlı Mimari",
+        "Clean Architecture",
+        "EF Core Operasyonları",
       ],
     },
     {
-      title: "Blog & CMS Sistemi",
+      title: "Stock Management System",
       description:
-        "Özelleştirilebilir blog ve içerik yönetim sistemi. Clean Architecture prensiplerine uygun geliştirildi.",
-      image: "/project2.jpg",
-      tags: [".NET 6", "MongoDB", "React", "Docker"],
-      github: "#",
-      live: "#",
-      features: [
-        "SEO Optimizasyonu",
-        "Çoklu Dil Desteği",
-        "Zengin İçerik Editörü",
-      ],
+        ".NET kullanılarak geliştirilmiş, işletmelerde stok yönetimini sağlayan backend projesi.",
+      image: "/stock-project.jpg",
+      tags: [".NET", "C#", "SQL Server", "Backend"],
+      github: "https://github.com/sevdaabbasi/stockManagement",
+      features: ["Stok Takibi", "Envanter Yönetimi", "Raporlama"],
     },
     {
-      title: "Araç Kiralama Sistemi",
+      title: "TO-DO List Backend",
       description:
-        "Kurumsal araç kiralama ve filo yönetim sistemi. Mikroservis mimarisi ile geliştirildi.",
-      image: "/project3.jpg",
-      tags: ["Microservices", "Kubernetes", "RabbitMQ", "Angular"],
-      github: "#",
-      live: "#",
+        "Swift ve TableView kullanılarak geliştirilen, çocukların eğlenerek okuyacağı masalları içeren uygulama.",
+      image: "/todo-project.jpg",
+      tags: ["Swift", "TableView", "iOS", "Mobile"],
+      github: "https://github.com/sevdaabbasi/TodoList",
       features: [
-        "Rezervasyon Sistemi",
-        "Ödeme Entegrasyonu",
-        "Araç Takip Sistemi",
+        "Kullanıcı Dostu Arayüz",
+        "Görev Yönetimi",
+        "Kategori Sistemi",
       ],
     },
   ];

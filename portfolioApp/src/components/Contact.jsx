@@ -14,19 +14,13 @@ const Contact = () => {
     {
       icon: <FaEnvelope className="text-3xl text-primary-DEFAULT" />,
       title: "Email",
-      detail: "sevda.abbasi@email.com",
-      link: "mailto:sevda.abbasi@email.com",
-    },
-    {
-      icon: <FaPhone className="text-3xl text-primary-DEFAULT" />,
-      title: "Telefon",
-      detail: "+90 555 555 5555",
-      link: "tel:+905555555555",
+      detail: "sevdaabbasi37@gmail.com",
+      link: "mailto:sevdaabbasi37@gmail.com",
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-primary-DEFAULT" />,
       title: "Konum",
-      detail: "İstanbul, Türkiye",
+      detail: "İstanbul, Turkey",
       link: "https://maps.google.com",
     },
   ];
@@ -34,21 +28,15 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <FaGithub className="text-2xl" />,
-      link: "https://github.com",
+      link: "https://github.com/sevdaabbasi",
       name: "GitHub",
       color: "hover:bg-gray-800",
     },
     {
       icon: <FaLinkedin className="text-2xl" />,
-      link: "https://linkedin.com",
+      link: "https://linkedin.com/in/sevda-abbasi-4b00271b9",
       name: "LinkedIn",
       color: "hover:bg-blue-600",
-    },
-    {
-      icon: <FaTwitter className="text-2xl" />,
-      link: "https://twitter.com",
-      name: "Twitter",
-      color: "hover:bg-sky-500",
     },
   ];
 

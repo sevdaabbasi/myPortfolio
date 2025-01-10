@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import myPhoto from "../assets/myPhoto.jpg";
 
 const Hero = () => {
   return (
@@ -33,11 +34,11 @@ const Hero = () => {
             <div className="text-2xl lg:text-3xl text-gray-700 mb-8 h-[40px]">
               <TypeAnimation
                 sequence={[
-                  "Bilgisayar Mühendisi",
-                  2000,
-                  ".NET Developer",
+                  "Backend Developer",
                   2000,
                   "Full Stack Developer",
+                  2000,
+                  "iOS Developer",
                   2000,
                 ]}
                 repeat={Infinity}
@@ -46,8 +47,8 @@ const Hero = () => {
 
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0">
               Modern teknolojiler kullanarak yenilikçi çözümler üretiyorum.
-              Kullanıcı deneyimini ön planda tutarak, performanslı ve
-              ölçeklenebilir uygulamalar geliştiriyorum.
+              Clean Code ve SOLID prensiplerine bağlı kalarak, sürdürülebilir ve
+              ölçeklenebilir yazılımlar geliştirmeye özen gösteriyorum.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -72,13 +73,22 @@ const Hero = () => {
             {/* Sosyal Medya Linkleri */}
             <div className="flex gap-6 mt-10 justify-center lg:justify-start">
               {[
-                { icon: <FaGithub />, href: "#", label: "GitHub" },
-                { icon: <FaLinkedin />, href: "#", label: "LinkedIn" },
-                { icon: <FaTwitter />, href: "#", label: "Twitter" },
+                {
+                  icon: <FaGithub />,
+                  href: "View Github Profile linki",
+                  label: "GitHub",
+                },
+                {
+                  icon: <FaLinkedin />,
+                  href: "View LinkedIn Profile linki",
+                  label: "LinkedIn",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -3 }}
                   className="text-2xl text-gray-600 hover:text-indigo-500 transition-colors"
                   aria-label={social.label}
@@ -103,8 +113,8 @@ const Hero = () => {
               {/* Profil Resmi */}
               <div className="relative rounded-full overflow-hidden border-8 border-white shadow-2xl aspect-square">
                 <img
-                  src="/myPhoto.jpg"
-                  alt="Profil"
+                  src={myPhoto}
+                  alt="Sevda Abbasi"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
               </div>

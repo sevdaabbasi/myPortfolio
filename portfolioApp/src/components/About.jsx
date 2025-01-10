@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { useRef, useMemo } from "react";
 import {
   FaCode,
   FaDatabase,
@@ -10,42 +13,129 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
+const DNAHelix = () => {
+  const groupRef = useRef();
+  const particlesCount = 80;
+  const radius = 4;
+  const height = 8;
+
+  const particles = useMemo(() => {
+    const temp = [];
+    for (let i = 0; i < particlesCount; i++) {
+      const angle = (i / particlesCount) * Math.PI * 4;
+      const x = Math.cos(angle) * radius;
+      const y = (i / particlesCount) * height - height / 2;
+      const z = Math.sin(angle) * radius;
+      temp.push({ position: [x, y, z], angle });
+    }
+    return temp;
+  }, []);
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    groupRef.current.rotation.y = time * 0.2;
+  });
+
+  return (
+    <group ref={groupRef}>
+      {/* DNA Sarmalı */}
+      {particles.map((particle, i) => (
+        <group key={i} position={particle.position}>
+          {/* Sol Parçacık */}
+          <mesh>
+            <sphereGeometry args={[0.1, 16, 16]} />
+            <meshStandardMaterial
+              color="#4f46e5"
+              emissive="#4f46e5"
+              emissiveIntensity={0.5}
+            />
+          </mesh>
+          {/* Sağ Parçacık */}
+          <mesh
+            position={[
+              Math.cos(particle.angle + Math.PI) * radius * 0.5,
+              0,
+              Math.sin(particle.angle + Math.PI) * radius * 0.5,
+            ]}
+          >
+            <sphereGeometry args={[0.1, 16, 16]} />
+            <meshStandardMaterial
+              color="#0ea5e9"
+              emissive="#0ea5e9"
+              emissiveIntensity={0.5}
+            />
+          </mesh>
+          {/* Bağlantı Çizgisi */}
+          <mesh>
+            <cylinderGeometry args={[0.02, 0.02, radius * 0.5, 8]} />
+            <meshStandardMaterial
+              color="#6366f1"
+              emissive="#6366f1"
+              emissiveIntensity={0.2}
+              transparent
+              opacity={0.6}
+            />
+          </mesh>
+        </group>
+      ))}
+    </group>
+  );
+};
+
+const Scene = () => {
+  return (
+    <Canvas camera={{ position: [0, 0, 12], fov: 50 }}>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1} />
+      <DNAHelix />
+      <OrbitControls
+        autoRotate
+        autoRotateSpeed={0.5}
+        enableZoom={false}
+        maxPolarAngle={Math.PI / 1.5}
+        minPolarAngle={Math.PI / 3}
+      />
+    </Canvas>
+  );
+};
+
 const About = () => {
   const skills = [
     {
       icon: (
         <FaCode className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
       ),
-      title: "Frontend Geliştirme",
-      description: "React, Angular, HTML5, CSS3, JavaScript, TypeScript",
-      color: "from-sky-400 to-sky-600",
-      features: ["Modern UI/UX", "Responsive Tasarım", "SEO Optimizasyonu"],
+      title: "Backend Geliştirme",
+      description: "C#, .NET, ASP.NET Core, Entity Framework Core",
+      features: ["Clean Architecture", "N Tier Architecture", "RESTful APIs"],
     },
     {
       icon: (
         <FaServer className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
       ),
-      title: "Backend Geliştirme",
-      description: ".NET Core, C#, SQL Server, RESTful APIs",
-      color: "from-indigo-400 to-indigo-600",
-      features: ["Mikroservisler", "API Tasarımı", "Performans Optimizasyonu"],
+      title: "iOS Geliştirme",
+      description: "Swift, SwiftUI, TableView",
+      features: ["Mobile UI/UX", "Firebase Integration", "API Integration"],
     },
     {
       icon: (
         <FaDatabase className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
       ),
-      title: "Veritabanı Yönetimi",
-      description: "SQL Server, MongoDB, Redis, PostgreSQL",
-      color: "from-purple-400 to-purple-600",
-      features: ["Veri Modelleme", "Query Optimizasyonu", "Veri Güvenliği"],
+      title: "Full Stack Geliştirme",
+      description: "React, JavaScript, HTML, CSS",
+      features: [
+        "Modern UI/UX",
+        "Responsive Design",
+        "Frontend-Backend Integration",
+      ],
     },
   ];
 
   const stats = [
     { number: "4+", label: "Yıl Deneyim" },
-    { number: "50+", label: "Tamamlanan Proje" },
-    { number: "20+", label: "Mutlu Müşteri" },
-    { number: "100%", label: "Müşteri Memnuniyeti" },
+    { number: "8+", label: "Tamamlanan Proje" },
+    { number: "5+", label: "Sertifika" },
+    { number: "2+", label: "Teknoloji" },
   ];
 
   return (
@@ -72,15 +162,12 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <div className="relative z-10 group">
-              <div className="overflow-hidden rounded-2xl">
-                <img
-                  src="/myPhoto.jpg"
-                  alt="Profil"
-                  className="w-full h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-500"
-                />
+            <div className="relative z-10 group perspective-1000">
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 rounded-2xl opacity-75 blur-lg animate-pulse-slow" />
+              <div className="relative overflow-hidden rounded-2xl border-8 border-white shadow-2xl bg-gray-900 aspect-square transform-gpu transition-transform duration-500 hover:scale-[1.02]">
+                <Scene />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
