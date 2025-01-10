@@ -18,7 +18,10 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20"
+    >
       {/* Arkaplan Gradient ve Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-violet-600 via-indigo-500 to-sky-500 opacity-10" />
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
