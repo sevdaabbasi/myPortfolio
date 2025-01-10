@@ -136,11 +136,11 @@ const Footer = () => {
               className="space-y-4"
             >
               <a
-                href="mailto:sevda.abbasi@email.com"
+                href="mailto:sevdaabbasi37@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
               >
                 <FaEnvelope />
-                <span>sevda.abbasi@email.com</span>
+                <span>sevdaabbasi37@gmail.com</span>
               </a>
               <p className="flex items-center gap-3 text-gray-400">
                 <FaMapMarkerAlt />
