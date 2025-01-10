@@ -125,7 +125,7 @@ const Hero = () => {
               </div>
 
               {/* Performans Metrikleri */}
-              <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition-transform duration-300">
+              <div className="absolute -top-2 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition-transform duration-300">
                 <p className="text-xl font-bold text-indigo-500">2+</p>
                 <p className="text-sm text-gray-600">Years Experience</p>
               </div>
