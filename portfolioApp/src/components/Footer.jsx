@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaHeart,
   FaArrowUp,
   FaEnvelope,
@@ -18,14 +17,14 @@ const Footer = () => {
     {
       title: "Hızlı Linkler",
       links: [
-        { label: "Ana Sayfa", href: "#home" },
-        { label: "Hakkımda", href: "#about" },
-        { label: "Projeler", href: "#projects" },
-        { label: "İletişim", href: "#contact" },
+        { label: "Home", href: "#home" },
+        { label: "About", href: "#about" },
+        { label: "Projects", href: "#projects" },
+        { label: "Contact", href: "#contact" },
       ],
     },
     {
-      title: "Teknolojiler",
+      title: "Technologies",
       links: [
         { label: ".NET Core", href: "#" },
         { label: "React", href: "#" },
@@ -38,21 +37,15 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: <FaGithub size={20} />,
-      href: "https://github.com",
+      href: "https://github.com/sevdaabbasi/",
       label: "GitHub",
       color: "hover:bg-gray-800",
     },
     {
       icon: <FaLinkedin size={20} />,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
       label: "LinkedIn",
       color: "hover:bg-blue-600",
-    },
-    {
-      icon: <FaTwitter size={20} />,
-      href: "https://twitter.com",
-      label: "Twitter",
-      color: "hover:bg-sky-500",
     },
   ];
 
@@ -76,7 +69,7 @@ const Footer = () => {
               <span className="text-gradient">Sevda Abbasi</span>
             </motion.h3>
             <p className="text-gray-400">
-              Modern teknolojiler kullanarak yenilikçi çözümler geliştiriyorum.
+              I develop innovative solutions using modern technologies.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -134,7 +127,7 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-lg font-semibold text-white"
             >
-              İletişim
+              Contact
             </motion.h4>
             <motion.div
               initial={{ opacity: 0, x: 10 }}

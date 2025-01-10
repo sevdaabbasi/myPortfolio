@@ -14,19 +14,13 @@ const Contact = () => {
     {
       icon: <FaEnvelope className="text-3xl text-primary-DEFAULT" />,
       title: "Email",
-      detail: "sevda.abbasi@email.com",
-      link: "mailto:sevda.abbasi@email.com",
-    },
-    {
-      icon: <FaPhone className="text-3xl text-primary-DEFAULT" />,
-      title: "Telefon",
-      detail: "+90 555 555 5555",
-      link: "tel:+905555555555",
+      detail: "sevdaabbasi37@gmail.com",
+      link: "mailto:sevdaabbasi37@gmail.com",
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-primary-DEFAULT" />,
-      title: "Konum",
-      detail: "İstanbul, Türkiye",
+      title: "Location",
+      detail: "Istanbul, Turkey",
       link: "https://maps.google.com",
     },
   ];
@@ -34,21 +28,15 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <FaGithub className="text-2xl" />,
-      link: "https://github.com",
+      link: "https://github.com/sevdaabbasi",
       name: "GitHub",
       color: "hover:bg-gray-800",
     },
     {
       icon: <FaLinkedin className="text-2xl" />,
-      link: "https://linkedin.com",
+      link: "https://linkedin.com/in/sevda-abbasi-4b00271b9",
       name: "LinkedIn",
       color: "hover:bg-blue-600",
-    },
-    {
-      icon: <FaTwitter className="text-2xl" />,
-      link: "https://twitter.com",
-      name: "Twitter",
-      color: "hover:bg-sky-500",
     },
   ];
 
@@ -70,11 +58,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4">
-            Benimle <span className="text-gradient">İletişime Geçin</span>
+            Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Projeleriniz veya iş birliği fırsatları için benimle iletişime
-            geçebilirsiniz. Size en kısa sürede dönüş yapacağım.
+            Feel free to reach out to me for any questions or opportunities
           </p>
         </motion.div>
 
@@ -115,7 +102,7 @@ const Contact = () => {
             {/* Sosyal Medya Linkleri */}
             <div className="bg-white p-6 rounded-2xl shadow-custom">
               <h3 className="text-xl font-bold mb-6 text-gray-800">
-                Sosyal Medya
+                Social Media
               </h3>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
@@ -141,44 +128,61 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white p-8 rounded-2xl shadow-custom"
+            className="bg-white p-8 rounded-2xl shadow-custom relative overflow-hidden"
           >
+            {/* Coming Soon Overlay */}
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-center p-6"
+              >
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  Coming Soon!
+                </h3>
+                <p className="text-gray-600">
+                  Contact form is currently under maintenance. Please use email
+                  or social media to reach me.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Mevcut form içeriği */}
             <h3 className="text-xl font-bold mb-6 text-gray-800">
-              Mesaj Gönderin
+              Send Message
             </h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">Adınız</label>
+                  <label className="text-gray-700 font-medium mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="Adınız Soyadınız"
+                    placeholder="Full Name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">Email</label>
+                  <label className="text-gray-700 font-medium mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="ornek@email.com"
+                    placeholder="example@email.com"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-gray-700 font-medium">Konu</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                  placeholder="Mesajınızın konusu"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-gray-700 font-medium">Mesajınız</label>
+                <label className="text-gray-700 font-medium mb-2">
+                  Message
+                </label>
                 <textarea
                   rows="5"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors resize-none"
-                  placeholder="Mesajınızı buraya yazın..."
+                  placeholder="Typing here..."
                 ></textarea>
               </div>
               <motion.button
@@ -188,7 +192,7 @@ const Contact = () => {
                 className="w-full btn-custom btn-primary inline-flex items-center justify-center gap-2"
               >
                 <FaPaperPlane />
-                Mesaj Gönder
+                Send Message
               </motion.button>
             </form>
           </motion.div>
