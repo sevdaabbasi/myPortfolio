@@ -141,10 +141,8 @@ const CodingLaptop = ({ isDragging, setIsDragging, rotation, setRotation }) => {
             />
           </svg>
           <div className="flex flex-col">
-            <span className="font-medium text-gray-800">Etkileşimli Model</span>
-            <span className="text-xs text-gray-600">
-              Tıkla, sürükle ve yakınlaştır
-            </span>
+            <span className="font-medium text-gray-800">Interactive Model</span>
+            <span className="text-xs text-gray-600">Click, drag and zoom</span>
           </div>
         </div>
       </div>
@@ -222,7 +220,7 @@ const About = () => {
           <FaCode className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
         </div>
       ),
-      title: "Backend Geliştirme",
+      title: "Backend Development",
       description: "C#, .NET, ASP.NET Core, Entity Framework Core",
       features: ["Clean Architecture", "N Tier Architecture", "RESTful APIs"],
     },
@@ -232,7 +230,7 @@ const About = () => {
           <FaServer className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
         </div>
       ),
-      title: "iOS Geliştirme",
+      title: "iOS Development",
       description: "Swift, SwiftUI, TableView",
       features: ["Mobile UI/UX", "Firebase Integration", "API Integration"],
     },
@@ -242,7 +240,7 @@ const About = () => {
           <FaDatabase className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
         </div>
       ),
-      title: "Full Stack Geliştirme",
+      title: "Full Stack Development",
       description: "React, JavaScript, HTML, CSS",
       features: [
         "Modern UI/UX",
@@ -253,10 +251,10 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "2+", label: "Yıl Deneyim" },
-    { number: "8+", label: "Tamamlanan Proje" },
-    { number: "5+", label: "Sertifika" },
-    { number: "2+", label: "Teknoloji" },
+    { number: "2+", label: "Years Experience" },
+    { number: "8+", label: "Completed Projects" },
+    { number: "5+", label: "Certificates" },
+    { number: "2+", label: "Technologies" },
   ];
 
   return (
@@ -268,11 +266,11 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="mb-4">
-            Hakkımda & <span className="text-gradient">Yeteneklerim</span>
+          <h2 className="text-4xl font-bold mb-4">
+            About Me & <span className="text-gradient">My Skills</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Modern teknolojiler kullanarak yenilikçi çözümler üretiyorum
+            Creating innovative solutions using modern technologies
           </p>
         </motion.div>
 
@@ -306,22 +304,21 @@ const About = () => {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <h3 className="text-gradient">Merhaba, Ben Sevda Abbasi</h3>
+              <h3 className="text-gradient">Hi, I 'm Sevda Abbasi.</h3>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  Bilgisayar mühendisi ve tutkulu bir full-stack yazılım
-                  geliştiricisiyim. 2+ yıllık deneyimimle modern web
-                  teknolojileri ve yazılım mimarileri konusunda uzmanlaştım.
+                  I am a computer engineer and passionate full-stack software
+                  developer. With 2+ years of experience, I specialize in modern
+                  web technologies and software architectures.
                 </p>
                 <p>
-                  .NET ekosistemi başta olmak üzere, frontend'den backend'e,
-                  veritabanı yönetiminden cloud servislerine kadar geniş bir
-                  yelpazede projeler geliştiriyorum.
+                  From the .NET ecosystem to frontend development, from database
+                  management to cloud services, I develop projects across a wide
+                  spectrum.
                 </p>
                 <p>
-                  Clean Code ve SOLID prensiplerine bağlı kalarak,
-                  sürdürülebilir ve ölçeklenebilir yazılımlar geliştirmeye özen
-                  gösteriyorum.
+                  Adhering to Clean Code and SOLID principles, I focus on
+                  developing sustainable and scalable software.
                 </p>
               </div>
             </div>
@@ -333,17 +330,17 @@ const About = () => {
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-primary p-4 rounded-xl"
               >
-                İletişime Geç
+                Contact Me
               </motion.a>
               <motion.a
-                href="/cv.pdf"
-                download
+                href="/Sevda_Abbasi_CV.pdf"
+                download="Sevda_Abbasi_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-outline flex items-center gap-2 p-4 rounded-xl"
               >
                 <FaDownload />
-                CV İndir
+                Download CV
               </motion.a>
             </div>
           </motion.div>

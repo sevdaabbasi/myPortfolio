@@ -81,7 +81,7 @@ const Projects = () => {
   ];
 
   const categories = [
-    { id: "all", label: "Tüm Projeler" },
+    { id: "all", label: "All Projects" },
     { id: "backend", label: "Backend" },
     { id: "ios", label: "iOS" },
   ];
@@ -100,11 +100,11 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="mb-4">
-            Öne Çıkan <span className="text-gradient">Projelerim</span>
+          <h2 className="text-4xl font-bold mb-4">
+            Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Geliştirdiğim bazı projelerden örnekler
+            Examples from some of my projects
           </p>
 
           {/* Kategori Filtreleme */}

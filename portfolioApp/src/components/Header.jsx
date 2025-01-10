@@ -8,10 +8,10 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   const menuItems = [
-    { href: "#home", label: "Ana Sayfa" },
-    { href: "#about", label: "Hakkımda" },
-    { href: "#projects", label: "Projeler" },
-    { href: "#contact", label: "İletişim" },
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const socialLinks = [
@@ -114,7 +114,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
                 className="btn btn-primary p-2 rounded-xl"
               >
-                İletişime Geç
+                Contact Me
               </motion.a>
             </div>
           </div>
@@ -210,7 +210,7 @@ const Header = () => {
                   whileTap={{ scale: 0.95 }}
                   className="btn-custom btn-primary w-full text-center"
                 >
-                  İletişime Geç
+                  Contact Me
                 </motion.a>
               </div>
             </div>

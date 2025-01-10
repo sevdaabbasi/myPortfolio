@@ -19,8 +19,8 @@ const Contact = () => {
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-primary-DEFAULT" />,
-      title: "Konum",
-      detail: "İstanbul, Turkey",
+      title: "Location",
+      detail: "Istanbul, Turkey",
       link: "https://maps.google.com",
     },
   ];
@@ -58,11 +58,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4">
-            Benimle <span className="text-gradient">İletişime Geçin</span>
+            Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Projeleriniz veya iş birliği fırsatları için benimle iletişime
-            geçebilirsiniz. Size en kısa sürede dönüş yapacağım.
+            Feel free to reach out to me for any questions or opportunities
           </p>
         </motion.div>
 
@@ -103,7 +102,7 @@ const Contact = () => {
             {/* Sosyal Medya Linkleri */}
             <div className="bg-white p-6 rounded-2xl shadow-custom">
               <h3 className="text-xl font-bold mb-6 text-gray-800">
-                Sosyal Medya
+                Social Media
               </h3>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
@@ -137,36 +136,34 @@ const Contact = () => {
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">Adınız</label>
+                  <label className="text-gray-700 font-medium mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="Adınız Soyadınız"
+                    placeholder="Full Name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-gray-700 font-medium">Email</label>
+                  <label className="text-gray-700 font-medium mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="ornek@email.com"
+                    placeholder="example@email.com"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-gray-700 font-medium">Konu</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                  placeholder="Mesajınızın konusu"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-gray-700 font-medium">Mesajınız</label>
+                <label className="text-gray-700 font-medium mb-2">
+                  Message
+                </label>
                 <textarea
                   rows="5"
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors resize-none"
-                  placeholder="Mesajınızı buraya yazın..."
+                  placeholder="Typing here..."
                 ></textarea>
               </div>
               <motion.button
@@ -176,7 +173,7 @@ const Contact = () => {
                 className="w-full btn-custom btn-primary inline-flex items-center justify-center gap-2"
               >
                 <FaPaperPlane />
-                Mesaj Gönder
+                Send Message
               </motion.button>
             </form>
           </motion.div>

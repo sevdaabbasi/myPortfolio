@@ -99,7 +99,7 @@ const Technologies = () => {
       ],
     },
     {
-      name: "Veritabanı & Araçlar",
+      name: "Database & Tools",
       items: [
         {
           name: "PostgreSQL",
@@ -156,11 +156,11 @@ const Technologies = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4">
-            Kullandığım <span className="text-gradient">Teknolojiler</span>
+            Technologies <span className="text-gradient">I Use</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Modern web uygulamaları geliştirmek için kullandığım başlıca
-            teknolojiler ve uzmanlık seviyelerim
+            Main technologies and my expertise levels that I use to develop
+            modern web applications
           </p>
         </motion.div>
 
@@ -214,7 +214,7 @@ const Technologies = () => {
           className="text-center mt-16"
         >
           <p className="text-gray-600 mb-8">
-            Ve daha birçok modern teknoloji ile çalışıyorum...
+            And I work with many other modern technologies...
           </p>
           <motion.a
             href="#projects"
@@ -223,7 +223,7 @@ const Technologies = () => {
             className="btn-custom btn-primary inline-flex items-center gap-2"
           >
             <FaCode className="text-xl" />
-            Projelerimi Görüntüle
+            View My Projects
           </motion.a>
         </motion.div>
       </div>

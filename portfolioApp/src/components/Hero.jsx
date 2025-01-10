@@ -38,7 +38,7 @@ const Hero = () => {
             className="flex-1 text-center lg:text-left"
           >
             <h1 className="text-5xl lg:text-7xl font-bold mb-6">
-              Merhaba, Ben{" "}
+              Hello, I'm{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500">
                 Sevda Abbasi
               </span>
@@ -59,9 +59,9 @@ const Hero = () => {
             </div>
 
             <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto lg:mx-0">
-              Modern teknolojiler kullanarak yenilikçi çözümler üretiyorum.
-              Clean Code ve SOLID prensiplerine bağlı kalarak, sürdürülebilir ve
-              ölçeklenebilir yazılımlar geliştirmeye özen gösteriyorum.
+              I create innovative solutions using modern technologies. Focusing
+              on developing sustainable and scalable software while adhering to
+              Clean Code and SOLID principles.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -71,7 +71,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500 text-white rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300"
               >
-                İletişime Geç
+                Contact Me
               </motion.a>
               <motion.a
                 href="#projects"
@@ -79,7 +79,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border-2 border-indigo-500 text-indigo-500 rounded-full font-medium hover:bg-indigo-50 transition-all duration-300"
               >
-                Projelerimi Gör
+                See My Projects
               </motion.a>
             </div>
 
@@ -124,17 +124,17 @@ const Hero = () => {
               {/* Performans Metrikleri */}
               <div className="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-12 hover:rotate-0 transition-transform duration-300">
                 <p className="text-xl font-bold text-indigo-500">2+</p>
-                <p className="text-sm text-gray-600">Yıl Deneyim</p>
+                <p className="text-sm text-gray-600">Years Experience</p>
               </div>
 
               <div className="absolute top-1/2 -right-12 bg-white p-4 rounded-2xl shadow-xl transform -rotate-12 hover:rotate-0 transition-transform duration-300">
                 <p className="text-xl font-bold text-indigo-500">8+</p>
-                <p className="text-sm text-gray-600">Proje</p>
+                <p className="text-sm text-gray-600">Projects</p>
               </div>
 
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl transform rotate-6 hover:rotate-0 transition-transform duration-300">
                 <p className="text-xl font-bold text-indigo-500">5+</p>
-                <p className="text-sm text-gray-600">Sertifika</p>
+                <p className="text-sm text-gray-600">Certificates</p>
               </div>
 
               {/* Dekoratif Badge */}
