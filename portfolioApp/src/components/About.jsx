@@ -218,7 +218,9 @@ const About = () => {
   const skills = [
     {
       icon: (
-        <FaCode className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
+        <div className="flex justify-center">
+          <FaCode className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
+        </div>
       ),
       title: "Backend Geliştirme",
       description: "C#, .NET, ASP.NET Core, Entity Framework Core",
@@ -226,7 +228,9 @@ const About = () => {
     },
     {
       icon: (
-        <FaServer className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
+        <div className="flex justify-center">
+          <FaServer className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
+        </div>
       ),
       title: "iOS Geliştirme",
       description: "Swift, SwiftUI, TableView",
@@ -234,7 +238,9 @@ const About = () => {
     },
     {
       icon: (
-        <FaDatabase className="text-5xl text-sky-500 group-hover:text-white transition-colors" />
+        <div className="flex justify-center">
+          <FaDatabase className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
+        </div>
       ),
       title: "Full Stack Geliştirme",
       description: "React, JavaScript, HTML, CSS",
