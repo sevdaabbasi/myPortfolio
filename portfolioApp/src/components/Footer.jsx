@@ -15,7 +15,7 @@ const Footer = () => {
 
   const footerLinks = [
     {
-      title: "Hızlı Linkler",
+      title: "Quick Links",
       links: [
         { label: "Home", href: "#home" },
         { label: "About", href: "#about" },
@@ -170,7 +170,7 @@ const Footer = () => {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors"
             >
-              <span>Yukarı Çık</span>
+              <span>Go Up</span>
               <FaArrowUp />
             </motion.button>
           </div>

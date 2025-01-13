@@ -12,7 +12,7 @@ const Projects = () => {
         "In the blog site project I developed with .NET Core, I created a structure in accordance with the principles of layered architecture and Clean Architecture. I performed EF Core and database operations",
       tech: ["C#", ".NET Core", "PostgreSQL", "Clean Architecture"],
       category: "backend",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/BlogSite",
       image: "https://via.placeholder.com/600x400?text=Blog+Project",
     },
     {
@@ -21,7 +21,7 @@ const Projects = () => {
         "Using .NET Core and Entity Framework Core, I developed a backend project that manages to-do lists with Clean Architecture principles and RESTful API endpoints.",
       tech: ["C#", ".NET Core", "Entity Framework", "Clean Architecture"],
       category: "backend",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/TodoList",
       image: "https://via.placeholder.com/600x400?text=TODO+App",
     },
     {
@@ -30,7 +30,7 @@ const Projects = () => {
         "Back end project was made using .Net, which provides stock management in enterprises.",
       tech: ["C#", ".NET Core", "PostgreSQL"],
       category: "backend",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/stockManagement",
       image: "https://via.placeholder.com/600x400?text=Stock+Management",
     },
     {
@@ -39,7 +39,7 @@ const Projects = () => {
         "This iOS app enriched with various panels with Restful API the current exchange rate and provides the user with the exchange rate information retrieved from the internet.",
       tech: ["Swift", "REST API", "iOS"],
       category: "ios",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/CurrencyConverter",
       image: "https://via.placeholder.com/600x400?text=Currency+Converter",
     },
     {
@@ -48,7 +48,7 @@ const Projects = () => {
         "With Swift language, a social media application is realised where students can ask questions, answer questions, add notes, and search for resources.",
       tech: ["Swift", "iOS", "Social Media"],
       category: "ios",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/QuenstionMonster",
       image: "https://via.placeholder.com/600x400?text=Social+Media+App",
     },
     {
@@ -57,7 +57,7 @@ const Projects = () => {
         "Developed with SwiftUI, this application is an E-Commerce Mobile application that brings together people who sell handicraft products and users who want to buy these products. The data in this application is stored and used using Firebase.",
       tech: ["Swift", "SwiftUI", "Firebase"],
       category: "ios",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/HandiCraftsApp",
       image: "https://via.placeholder.com/600x400?text=Handicrafts",
     },
     {
@@ -66,7 +66,7 @@ const Projects = () => {
         "Using TableView with Swift, an application containing fairy tales that children will read with fun has been realised.",
       tech: ["Swift", "iOS", "TableView"],
       category: "ios",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/story-book",
       image: "https://via.placeholder.com/600x400?text=Story+Book",
     },
     {
@@ -75,7 +75,7 @@ const Projects = () => {
         "This project called 'Crazy Moles' is written in Swift. The user earns points when clicking on randomly moving moles.",
       tech: ["Swift", "iOS"],
       category: "ios",
-      github: "https://github.com/link-to-repo",
+      github: "https://github.com/sevdaabbasi/moleGame",
       image: "https://via.placeholder.com/600x400?text=Crazy+Moles",
     },
   ];
