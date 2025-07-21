@@ -57,8 +57,8 @@ const LaptopModel = ({ isDragging, setIsDragging, rotation, setRotation }) => {
               <TypeAnimation
                 sequence={[
                   `<span class="text-[#00e5ff]">const</span> <span class="text-[#00e5ff]">developer</span> <span class="text-[#00e5ff]">=</span> {
-                    name: <span class="text-[#00e5ff]">'Sevda Abbasi'</span>,
-                    role: <span class="text-[#00e5ff]">'Full Stack Developer'</span>,
+                    name: <span class="text-[#00e5ff]">'Sevda Murioğlu'</span>,
+                    role: <span class="text-[#00e5ff]">'Backend Developer'</span>,
                     skills: [
                       <span class="text-[#00e5ff]">'C#'</span>,
                       <span class="text-[#00e5ff]">'.NET Core'</span>,
@@ -240,7 +240,7 @@ const About = () => {
           <FaDatabase className="text-5xl text-sky-500 transition-all duration-300 group-hover:scale-125" />
         </div>
       ),
-      title: "Full Stack Development",
+      title: "Frontend Development",
       description: "React, JavaScript, HTML, CSS",
       features: [
         "Modern UI/UX",
@@ -304,10 +304,10 @@ const About = () => {
             className="space-y-8"
           >
             <div className="space-y-6">
-              <h3 className="text-gradient">Hi, I 'm Sevda Abbasi.</h3>
+              <h3 className="text-gradient">Hi, I 'm Sevda Murioğlu.</h3>
               <div className="space-y-4 text-gray-600">
                 <p>
-                  I am a computer engineer and passionate full-stack software
+                  I am a computer engineer and passionate Backend software
                   developer. With 2+ years of experience, I specialize in modern
                   web technologies and software architectures.
                 </p>
@@ -333,7 +333,9 @@ const About = () => {
                 Contact Me
               </motion.a>
               <motion.a
-                href={`${import.meta.env.BASE_URL}Sevda_Abbasi_CV.pdf`}
+                href={`${
+                  import.meta.env.BASE_URL
+                }SevdaMurioglu_Backend_Developer.pdf`}
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

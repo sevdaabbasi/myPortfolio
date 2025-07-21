@@ -22,7 +22,7 @@ const Header = () => {
     },
     {
       icon: <FaLinkedin className="text-xl" />,
-      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
+      href: "https://www.linkedin.com/in/sevda-murio%C4%9Flu-4b00271b9/",
       label: "LinkedIn",
     },
   ];
@@ -63,7 +63,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-gradient">Sevda Abbasi</span>
+            <span className="text-gradient">Sevda Murioğlu</span>
           </motion.a>
 
           {/* Desktop Menu */}

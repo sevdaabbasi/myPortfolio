@@ -43,7 +43,7 @@ const Footer = () => {
     },
     {
       icon: <FaLinkedin size={20} />,
-      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
+      href: "https://www.linkedin.com/in/sevda-murio%C4%9Flu-4b00271b9/",
       label: "LinkedIn",
       color: "hover:bg-blue-600",
     },
@@ -66,7 +66,7 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl font-bold text-white"
             >
-              <span className="text-gradient">Sevda Abbasi</span>
+              <span className="text-gradient">Sevda Murioğlu</span>
             </motion.h3>
             <p className="text-gray-400">
               I develop innovative solutions using modern technologies.
@@ -136,11 +136,11 @@ const Footer = () => {
               className="space-y-4"
             >
               <a
-                href="mailto:sevdaabbasi37@gmail.com"
+                href="mailto:sevdamurioglu1@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
               >
                 <FaEnvelope />
-                <span>sevdaabbasi37@gmail.com</span>
+                <span>sevdamurioglu1@gmail.com</span>
               </a>
               <p className="flex items-center gap-3 text-gray-400">
                 <FaMapMarkerAlt />
@@ -159,20 +159,20 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               className="text-gray-400 text-sm"
             >
-              © {new Date().getFullYear()} Sevda Abbasi. Made with{" "}
-              <FaHeart className="inline-block text-red-500 animate-pulse" /> in
-              İstanbul
+              {/* © {new Date().getFullYear()} Sevda Murioğlu. */}
+              {/* <FaHeart className="inline-block text-red-500 animate-pulse" /> in
+              İstanbul */}
             </motion.p>
 
-            <motion.button
+            {/* <motion.button
               onClick={scrollToTop}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors"
             >
-              <span>Go Up</span>
+               <span>Go Up</span> 
               <FaArrowUp />
-            </motion.button>
+            </motion.button> */}
           </div>
         </div>
       </div>

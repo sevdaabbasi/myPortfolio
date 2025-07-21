@@ -7,6 +7,33 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Real-time Customer Review Processing System",
+      description:
+        "In this project, an end-to-end solution was developed that analyzes comments made about a business in real time and reports the results via Rest API services. The project consists of four main systems designed according to a microservice architecture: Producer (comment generation), gRPC (comment analysis), Consumer (comment processing), and Rest API (analysis results). Technologies such as Redis, PostgreSQL, Apache Kafka, Docker, and Zookeeper were utilized.",
+      tech: [
+        "JavaScript",
+        "express.js",
+        "Redis",
+        "Kafka",
+        "ZooKeeper",
+        "Microservice",
+        "PostgreSQL",
+      ],
+      category: "backend",
+      github: "https://github.com/sevdaabbasi/lounge-restaurant",
+      image:
+        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fserver_10321884&psig=AOvVaw1x74qstWpbPg0PnnzYNcQ8&ust=1753219981161000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJDEldrzzo4DFQAAAAAdAAAAABAL",
+    },
+    {
+      title: "OTS (Online Transfer System) Backend Project",
+      description:
+        "Is a financial platform that enables users to perform money transfers and manage their accounts. The system offers features for user authentication, customer profile management and secure financial transactions, allowing users to create accounts, make EFT transfers and track their transaction history.",
+      tech: ["C#", ".NET Core", "MSSQL"],
+      category: "backend",
+      github: "https://github.com/sevdaabbasi/PersonnelExpenseManagement",
+      image: "https://via.placeholder.com/600x400?text=Blog+Project",
+    },
+    {
       title: "Blog Website Backend Project",
       description:
         "In the blog site project I developed with .NET Core, I created a structure in accordance with the principles of layered architecture and Clean Architecture. I performed EF Core and database operations",

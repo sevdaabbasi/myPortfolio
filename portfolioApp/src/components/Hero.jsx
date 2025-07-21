@@ -12,7 +12,7 @@ const Hero = () => {
     },
     {
       icon: <FaLinkedin />,
-      href: "https://www.linkedin.com/in/sevda-abbasi-4b00271b9/",
+      href: "https://www.linkedin.com/in/sevda-murio%C4%9Flu-4b00271b9/",
       label: "LinkedIn",
     },
   ];
@@ -43,20 +43,13 @@ const Hero = () => {
             <h1 className="text-5xl lg:text-7xl font-bold mb-6">
               Hello, I'm{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-indigo-500 to-sky-500">
-                Sevda Abbasi
+                Sevda Murioğlu
               </span>
             </h1>
 
             <div className="text-2xl lg:text-3xl text-gray-700 mb-8 h-[40px]">
               <TypeAnimation
-                sequence={[
-                  "Backend Developer",
-                  2000,
-                  "Full Stack Developer",
-                  2000,
-                  "iOS Developer",
-                  2000,
-                ]}
+                sequence={["Backend Developer", 2000, "iOS Developer", 2000]}
                 repeat={Infinity}
               />
             </div>
@@ -119,7 +112,7 @@ const Hero = () => {
               <div className="relative rounded-full overflow-hidden border-8 border-white shadow-2xl aspect-square">
                 <img
                   src={myPhoto}
-                  alt="Sevda Abbasi"
+                  alt="Sevda Murioğlu"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -147,7 +140,7 @@ const Hero = () => {
                 transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
                 className="absolute -left-6 top-1/2 -translate-y-1/2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white p-4 rounded-2xl shadow-xl"
               >
-                <p className="text-sm font-semibold">Full Stack</p>
+                <p className="text-sm font-semibold">Backend</p>
                 <p className="text-xs opacity-80">Developer</p>
               </motion.div>
             </div>

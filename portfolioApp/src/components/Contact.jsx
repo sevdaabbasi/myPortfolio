@@ -14,8 +14,8 @@ const Contact = () => {
     {
       icon: <FaEnvelope className="text-3xl text-primary-DEFAULT" />,
       title: "Email",
-      detail: "sevdaabbasi37@gmail.com",
-      link: "mailto:sevdaabbasi37@gmail.com",
+      detail: "sevdamurioglu1@gmail.com",
+      link: "mailto:sevdamurioglu1@gmail.com",
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-primary-DEFAULT" />,
@@ -34,7 +34,7 @@ const Contact = () => {
     },
     {
       icon: <FaLinkedin className="text-2xl" />,
-      link: "https://linkedin.com/in/sevda-abbasi-4b00271b9",
+      link: "https://www.linkedin.com/in/sevda-murio%C4%9Flu-4b00271b9/",
       name: "LinkedIn",
       color: "hover:bg-blue-600",
     },
