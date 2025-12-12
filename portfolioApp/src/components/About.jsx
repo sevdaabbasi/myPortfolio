@@ -221,8 +221,8 @@ const About = () => {
         </div>
       ),
       title: "Backend Development",
-      description: "C#, .NET, ASP.NET Core, Entity Framework Core",
-      features: ["Clean Architecture", "N Tier Architecture", "RESTful APIs"],
+      description: "C#, .NET Core, ASP.NET Core, Entity Framework Core",
+      features: ["Clean Architecture", "CQRS & Microservices", "gRPC & JWT", "RESTful APIs", "PostgreSQL & Redis", "Kafka & Elasticsearch"],
     },
     {
       icon: (
@@ -231,8 +231,8 @@ const About = () => {
         </div>
       ),
       title: "iOS Development",
-      description: "Swift, SwiftUI, TableView",
-      features: ["Mobile UI/UX", "Firebase Integration", "API Integration"],
+      description: "Swift, SwiftUI, UIKit, TableView",
+      features: ["Mobile UI/UX Design", "Firebase Integration", "RESTful API Integration", "E-Commerce Apps", "Social Media Platforms"],
     },
     {
       icon: (
@@ -241,10 +241,11 @@ const About = () => {
         </div>
       ),
       title: "Frontend Development",
-      description: "React, JavaScript, HTML, CSS",
+      description: "React, JavaScript, HTML5, CSS3",
       features: [
-        "Modern UI/UX",
+        "Modern UI/UX Design",
         "Responsive Design",
+        "Admin Dashboards",
         "Frontend-Backend Integration",
       ],
     },
@@ -252,7 +253,7 @@ const About = () => {
 
   const stats = [
     { number: "2+", label: "Years Experience" },
-    { number: "8+", label: "Completed Projects" },
+    { number: "15+", label: "Completed Projects" },
     { number: "5+", label: "Certificates" },
     { number: "2+", label: "Technologies" },
   ];
@@ -332,7 +333,7 @@ const About = () => {
               >
                 Contact Me
               </motion.a>
-              <motion.a
+              {/* <motion.a
                 href={`${
                   import.meta.env.BASE_URL
                 }SevdaMurioglu_Backend_Developer.pdf`}
@@ -343,7 +344,7 @@ const About = () => {
               >
                 <FaDownload />
                 Download CV
-              </motion.a>
+              </motion.a> */}
             </div>
           </motion.div>
         </div>

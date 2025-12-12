@@ -49,7 +49,12 @@ const Hero = () => {
 
             <div className="text-2xl lg:text-3xl text-gray-700 mb-8 h-[40px]">
               <TypeAnimation
-                sequence={["Backend Developer", 2000, "iOS Developer", 2000]}
+                sequence={[
+                  "Backend Developer",
+                  2000,
+                  "Frontend Developer",
+                  2000,
+                ]}
                 repeat={Infinity}
               />
             </div>

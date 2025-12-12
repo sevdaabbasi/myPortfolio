@@ -1,28 +1,69 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const projects = [
     {
+      title: "Personnel Tracking System (Full-Stack Project)",
+      description:
+        "I developed a scalable and maintainable .NET backend following Clean Architecture principles. I implemented JWT and Identity-based authentication and authorization, integrated Redis caching and rate limiting, and configured Serilog logging, global exception handling, and health checks. On the frontend, I built a modern, responsive, and user-friendly admin dashboard using React.",
+      tech: [
+        ".NET Core",
+        "C#",
+        "React",
+        "Clean Architecture",
+        "JWT",
+        "Redis",
+        "PostgreSQL",
+        "Serilog",
+      ],
+      category: "fullstack",
+    },
+    {
       title: "Real-time Customer Review Processing System",
       description:
-        "In this project, an end-to-end solution was developed that analyzes comments made about a business in real time and reports the results via Rest API services. The project consists of four main systems designed according to a microservice architecture: Producer (comment generation), gRPC (comment analysis), Consumer (comment processing), and Rest API (analysis results). Technologies such as Redis, PostgreSQL, Apache Kafka, Docker, and Zookeeper were utilized.",
+        "An end-to-end solution that analyzes real-time customer comments about businesses and delivers insights through REST APIs. Designed using microservices architecture consisting of Producer (comment generation), gRPC (comment analysis), Consumer (processing), and REST API (reporting) components.",
       tech: [
         "JavaScript",
         "express.js",
+        "gRPC",
         "Redis",
         "Kafka",
         "ZooKeeper",
         "Microservice",
         "PostgreSQL",
+        "Docker",
       ],
       category: "backend",
       github: "https://github.com/sevdaabbasi/lounge-restaurant",
-      image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fserver_10321884&psig=AOvVaw1x74qstWpbPg0PnnzYNcQ8&ust=1753219981161000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJDEldrzzo4DFQAAAAAdAAAAABAL",
+      image: "https://via.placeholder.com/600x400?text=Review+System",
+    },
+    {
+      title: "Papara Backend Bootcamp - Fintech Project",
+      description:
+        "Developed a comprehensive fintech project using .NET Core with JWT authentication, Entity Framework Core, Dapper, and Clean Architecture principles. Implemented layered structure with focus on scalability and maintainability.",
+      tech: [
+        "C#",
+        ".NET Core",
+        "JWT",
+        "EF Core",
+        "Dapper",
+        "Clean Architecture",
+      ],
+      category: "backend",
+      github: "https://github.com/sevdaabbasi/PaparaBootcamp",
+      image: "https://via.placeholder.com/600x400?text=Papara+Fintech",
+    },
+    {
+      title: "Personnel Expense Management Backend Project",
+      description:
+        "A web-based backend system for tracking, categorizing, and reporting personnel expenses. Developed core modules for company and user management, expense operations, and document management using .NET Core and Clean Architecture principles.",
+      tech: ["C#", ".NET Core", "PostgreSQL", "Clean Architecture"],
+      category: "backend",
+      github: "https://github.com/sevdaabbasi/PersonnelExpenseManagement",
+      image: "https://via.placeholder.com/600x400?text=Expense+Management",
     },
     {
       title: "OTS (Online Transfer System) Backend Project",
@@ -34,10 +75,10 @@ const Projects = () => {
       image: "https://via.placeholder.com/600x400?text=Blog+Project",
     },
     {
-      title: "Blog Website Backend Project",
+      title: "Blog Website Backend Project (Sweet Dictionary)",
       description:
-        "In the blog site project I developed with .NET Core, I created a structure in accordance with the principles of layered architecture and Clean Architecture. I performed EF Core and database operations",
-      tech: ["C#", ".NET Core", "PostgreSQL", "Clean Architecture"],
+        "Designed and implemented the backend for a social dictionary website using .NET Core and EF Core, following Clean Architecture. Built modules for user authentication, content sharing, comments, and search features.",
+      tech: ["C#", ".NET Core", "PostgreSQL", "Clean Architecture", "EF Core"],
       category: "backend",
       github: "https://github.com/sevdaabbasi/BlogSite",
       image: "https://via.placeholder.com/600x400?text=Blog+Project",
@@ -45,8 +86,14 @@ const Projects = () => {
     {
       title: "TO-DO List Backend Project",
       description:
-        "Using .NET Core and Entity Framework Core, I developed a backend project that manages to-do lists with Clean Architecture principles and RESTful API endpoints.",
-      tech: ["C#", ".NET Core", "Entity Framework", "Clean Architecture"],
+        "A scalable and secure backend infrastructure that facilitates task management, scheduling and team collaboration. Performance and maintainability are at the forefront with modern architecture and JWT-based authentication.",
+      tech: [
+        "C#",
+        ".NET Core",
+        "Entity Framework",
+        "Clean Architecture",
+        "JWT",
+      ],
       category: "backend",
       github: "https://github.com/sevdaabbasi/TodoList",
       image: "https://via.placeholder.com/600x400?text=TODO+App",
@@ -54,8 +101,8 @@ const Projects = () => {
     {
       title: "Stock Management Backend Project",
       description:
-        "Back end project was made using .Net, which provides stock management in enterprises.",
-      tech: ["C#", ".NET Core", "PostgreSQL"],
+        "Created a backend infrastructure for tracking product stock, managing categories, and performing CRUD operations. Designed using C#, EF Core, and layered architecture principles.",
+      tech: ["C#", ".NET Core", "PostgreSQL", "EF Core"],
       category: "backend",
       github: "https://github.com/sevdaabbasi/stockManagement",
       image: "https://via.placeholder.com/600x400?text=Stock+Management",
@@ -70,7 +117,7 @@ const Projects = () => {
       image: "https://via.placeholder.com/600x400?text=Currency+Converter",
     },
     {
-      title: "Social Media Question Application",
+      title: "Social Media Question Application with Swift",
       description:
         "With Swift language, a social media application is realised where students can ask questions, answer questions, add notes, and search for resources.",
       tech: ["Swift", "iOS", "Social Media"],
@@ -79,10 +126,10 @@ const Projects = () => {
       image: "https://via.placeholder.com/600x400?text=Social+Media+App",
     },
     {
-      title: "Handicrafts with SwiftUI",
+      title: "Handicrafts E-Commerce App with SwiftUI",
       description:
-        "Developed with SwiftUI, this application is an E-Commerce Mobile application that brings together people who sell handicraft products and users who want to buy these products. The data in this application is stored and used using Firebase.",
-      tech: ["Swift", "SwiftUI", "Firebase"],
+        "Developed with SwiftUI, this E-Commerce mobile application brings together people who sell handicraft products and users who want to buy these products. The data is stored and managed using Firebase.",
+      tech: ["Swift", "SwiftUI", "Firebase", "E-Commerce"],
       category: "ios",
       github: "https://github.com/sevdaabbasi/HandiCraftsApp",
       image: "https://via.placeholder.com/600x400?text=Handicrafts",
@@ -100,7 +147,7 @@ const Projects = () => {
       title: "Crazy Moles Game",
       description:
         "This project called 'Crazy Moles' is written in Swift. The user earns points when clicking on randomly moving moles.",
-      tech: ["Swift", "iOS"],
+      tech: ["Swift", "iOS", "Game"],
       category: "ios",
       github: "https://github.com/sevdaabbasi/moleGame",
       image: "https://via.placeholder.com/600x400?text=Crazy+Moles",
@@ -110,6 +157,7 @@ const Projects = () => {
   const categories = [
     { id: "all", label: "All Projects" },
     { id: "backend", label: "Backend" },
+    { id: "fullstack", label: "Full-Stack" },
     { id: "ios", label: "iOS" },
   ];
 
@@ -161,51 +209,18 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group hover-lift"
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-end p-4 gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-sky-400 transition-colors"
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm"
                     >
-                      <FaGithub className="text-2xl" />
-                    </a>
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-sky-400 transition-colors"
-                      >
-                        <FaExternalLinkAlt className="text-xl" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-sky-100 text-sky-600 rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>

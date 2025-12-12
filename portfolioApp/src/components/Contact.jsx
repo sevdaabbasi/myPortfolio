@@ -5,8 +5,6 @@ import {
   FaMapMarkerAlt,
   FaGithub,
   FaLinkedin,
-  FaTwitter,
-  FaPaperPlane,
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -65,11 +63,11 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Sol Taraf - İletişim Bilgileri */}
+        <div className="max-w-2xl mx-auto">
+          {/* İletişim Bilgileri */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-8"
           >
@@ -121,80 +119,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
-
-          {/* Sağ Taraf - İletişim Formu */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white p-8 rounded-2xl shadow-custom relative overflow-hidden"
-          >
-            {/* Coming Soon Overlay */}
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-center p-6"
-              >
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                  Coming Soon!
-                </h3>
-                <p className="text-gray-600">
-                  Contact form is currently under maintenance. Please use email
-                  or social media to reach me.
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Mevcut form içeriği */}
-            <h3 className="text-xl font-bold mb-6 text-gray-800">
-              Send Message
-            </h3>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-gray-700 font-medium mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="Full Name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-gray-700 font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors"
-                    placeholder="example@email.com"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-gray-700 font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  rows="5"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-DEFAULT focus:ring-2 focus:ring-primary-DEFAULT/20 transition-colors resize-none"
-                  placeholder="Typing here..."
-                ></textarea>
-              </div>
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-custom btn-primary inline-flex items-center justify-center gap-2"
-              >
-                <FaPaperPlane />
-                Send Message
-              </motion.button>
-            </form>
           </motion.div>
         </div>
       </div>
